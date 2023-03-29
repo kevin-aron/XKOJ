@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title> XKOJ </title>
+		<link rel="icon" href="{% static "img/uni.ico" %}" type="image/x-icon"/>
+		<link rel="stylesheet" href="{% static "css/base.css" %}"/>
+		<link rel="stylesheet" href="{% static "css/register.css" %}"/>
+	</head>
+	<body>
+		<div class="inbox">
+			<div class="navv">
+				<div class="top_navv">
+					<img src="{% static "img/logo.jpg" %}" class="img_top_navv" />
+					<br>
+					<b class="font_top_navv">&nbsp;&nbsp;ACM算法与竞赛协会</b>
+					<br>
+					<b class="font_top_navv2">&nbsp;&nbsp;OJ与博客系统</b>
+				</div>
+				<div class="navv_line">
+				</div>
+				<div class="down_navv">
+					<div class="navv_style">
+						<ul>
+							<li class="item">
+								<embed src="{% static "img/home.svg" %}" type="image/svg+xml" />
+								<a href="/">&nbsp;&nbsp;主页</a>
+							</li>
+							<li class="item">
+								<embed src="{% static "img/problem.svg" %}" type="image/svg+xml" />
+								<a href="/problems">&nbsp;&nbsp;题库</a>
+							</li>
+							<li class="item">
+								<embed src="{% static "img/rank.svg" %}" type="image/svg+xml" />
+								<a href="/games">&nbsp;&nbsp;比赛</a>
+							</li>
+							<li class="item">
+								<embed src="{% static "img/blog.svg" %}" type="image/svg+xml" />
+								<a href="/blogs">&nbsp;&nbsp;博客</a>
+							</li>
+							<li class="item">
+								<embed src="{% static "img/about.svg" %}" type="image/svg+xml" />
+								<a href="/about">&nbsp;&nbsp;关于</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="texx">
+				<div class="top_texx">
+					<span class="push_hand">&nbsp;&nbsp;&nbsp;&nbsp;&#128075;&nbsp;&nbsp;<b style="font-family:"Comic Sans MS", cursive, sans-serif;">Welcome&nbsp;To&nbsp;XKOJ &nbsp;~</b></span>
+					{% if user.is_authenticated %}
+						<button class="btn1" type="bottom"><a href="/logout">登出</a></button>
+						<embed src="{% static "img/user.svg" %}" type="image/svg+xml" />
+						<a href="/message">{{ user.username }}</a>
+					{% else %}
+						<button class="btn1" type="bottom"><a href="/settings/login">登录</a></button>
+						<button class="btn2" type="bottom"><a href="/settings/register">注册</a></button>
+					{% endif %}
+				</div>
+				<div class="down_texx">
+					{% block body_block %} 
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

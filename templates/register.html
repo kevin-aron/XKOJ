@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox">
+	<p>注册用户信息</p>
+	{% if registered %}
+		<p>恭喜你，注册成功！</p>
+	{% else %}
+	<form id="coder_form" method="post" action="/register/" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="reg_cab">
+			<label for="id_username">用户</label>
+			<input id="id_username" maxlength="30" name="username" type="text" />
+		</div>
+		<div class="cab">
+			<label for="id_password">密码</label>
+			<input id="id_password" name="password" type="password" />
+		</div>
+		<div class="cab">
+			<label for="id_avatar">头像</label>
+			<input id="id_avatar" name="avatar" type="file" />
+		</div>
+		<div class="reg_btn">
+			<input type="submit" name="submit" value="确认注册" />
+		</div>
+	</form>
+	{% endif %}
+</div>
+
+{% endblock %}
