@@ -6,6 +6,7 @@
 		<link rel="icon" href="{% static "img/uni.ico" %}" type="image/x-icon"/>
 		<link rel="stylesheet" href="{% static "css/base.css" %}"/>
 		<link rel="stylesheet" href="{% static "css/register.css" %}"/>
+		<link rel="stylesheet" href="{% static "css/login.css" %}"/>
 	</head>
 	<body>
 		<div class="inbox">
@@ -50,16 +51,18 @@
 				<div class="top_texx">
 					<span class="push_hand">&nbsp;&nbsp;&nbsp;&nbsp;&#128075;&nbsp;&nbsp;<b style="font-family:"Comic Sans MS", cursive, sans-serif;">Welcome&nbsp;To&nbsp;XKOJ &nbsp;~</b></span>
 					{% if user.is_authenticated %}
-						<button class="btn1" type="bottom"><a href="/logout">登出</a></button>
-						<embed src="{% static "img/user.svg" %}" type="image/svg+xml" />
-						<a href="/message">{{ user.username }}</a>
+						<button class="btn1" type="bottom"><a href="/settings/logout">登出</a></button>
+						<div class="user_location">
+							<embed src="{% static "img/user.svg" %}" type="image/svg+xml" />
+							<a href="/settings/message" class="user_display">{{ user.username }}</a>
+						</div>
 					{% else %}
 						<button class="btn1" type="bottom"><a href="/settings/login">登录</a></button>
 						<button class="btn2" type="bottom"><a href="/settings/register">注册</a></button>
 					{% endif %}
 				</div>
 				<div class="down_texx">
-					{% block body_block %} 
+					{% block body_block %}
 					{% endblock %}
 				</div>
 			</div>

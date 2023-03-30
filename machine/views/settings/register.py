@@ -8,11 +8,11 @@ from machine.models.coder.coder import Coder
 
 
 def register(request):
-	registered = False 
+	registered = False
 	if request.method == 'POST':
 		avatar = request.FILES.get('avatar')
-		user_form = UserForm(data=request.POST)
-		if user_form.is_vaild():
+		user_form = UserForm(request.POST)
+		if user_form.is_valid():
 			u_now = user_form.save()
 			u_now.set_password(u_now.password)
 			u_now.save()

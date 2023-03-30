@@ -3,26 +3,27 @@
 {% block body_block %}
 
 <div class="regbox">
-	<p>注册用户信息</p>
+	<div class="reg_title"><b>注册信息</b></div>
+	<br>
 	{% if registered %}
-		<p>恭喜你，注册成功！</p>
+		<p><b>恭喜你，注册成功！<b></p>
 	{% else %}
-	<form id="coder_form" method="post" action="/register/" enctype="multipart/form-data">
+	<form id="coder_form" method="post" action="/settings/register/" enctype="multipart/form-data">
 		{% csrf_token %}
 		<div class="reg_cab">
-			<label for="id_username">用户</label>
-			<input id="id_username" maxlength="30" name="username" type="text" />
+			<label for="id_username" class="reg_cab_lab">用户&nbsp;&nbsp;&nbsp;</label>
+			<input id="username" maxlength="30" name="username" type="text" />
 		</div>
-		<div class="cab">
-			<label for="id_password">密码</label>
-			<input id="id_password" name="password" type="password" />
+		<div class="reg_cab">
+			<label for="id_password" class="reg_cab_lab">密码&nbsp;&nbsp;&nbsp;</label>
+			<input id="password" name="password" type="password" />
 		</div>
-		<div class="cab">
-			<label for="id_avatar">头像</label>
-			<input id="id_avatar" name="avatar" type="file" />
+		<div class="reg_cab">
+			<label for="id_avatar" class="reg_cab_lab">头像&nbsp;&nbsp;&nbsp;</label>
+			<input id="avatar" name="avatar" type="file" />
 		</div>
 		<div class="reg_btn">
-			<input type="submit" name="submit" value="确认注册" />
+			<input type="submit" class="reg_btn1" name="submit" value="确认注册" />
 		</div>
 	</form>
 	{% endif %}
