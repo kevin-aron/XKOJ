@@ -28,3 +28,15 @@
 	color:#ffffff;
 	font-weight: 900;
 }
+.pro_state{
+	margin-left:50px;
+}
+.submit_btn{
+	margin-top:50px;
+	margin-left:50px;
+	background-color: #0000b3;
+	color:#ffffff;
+	font-weight: 900;
+	border-radius: 2px;
+	font-size:15px;
+}

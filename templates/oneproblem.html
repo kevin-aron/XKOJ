@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title">
+		<b>{{problem.name}}</b>
+		<a class="submit_btn" href="/content/submit/{{problem.code}}">
+			提交答案
+		</a>
+	</div>
+	<br><br>
+	<div class="pro_state">{{problem.statement}}</div>
+</div>
+
+{% endblock %}
