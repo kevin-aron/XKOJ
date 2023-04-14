@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title"><b>题目集</b></div>
+	<br>
+	<hr>
+	<div style="height:400px;overflow:auto;">
+	<table class="pro_all_table">
+		<thead>
+			<tr>
+				<th style="width: 10%;">#</td>
+				<th style="width: 60%;">标题</td>
+				<th style="width: 15%;">通过率</td>
+				<th style="width: 15%;">难度</td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for p in all_problems %}
+			<tr>
+			<td>{{forloop.counter}}</td> 
+			<td><a href="{{p.link}}"><font color="#000099">{{p.name}}</font></a></td>
+			
+			<td>
+				<p id="rate_ac" class="pro_rate"></p>
+				<script>
+					function divide() {
+					    const num1 = {{p.num_ac}};
+					    const num2 = {{p.num_submissions}};
+					    if (num2 === 0) {
+					        return 0.00;
+					    }
+					    var result = (num1 / num2)*100;
+					    result = result.toFixed(2);
+					    return result;
+					}
+					var result=divide();
+					document.getElementById("rate_ac").innerHTML = result+'%';
+				</script>
+			</td>
+			<td><div class="pro_score">{{p.score}}</div></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+
+{% endblock %}

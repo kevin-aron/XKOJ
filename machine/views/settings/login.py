@@ -17,5 +17,5 @@ def signin(request):
 		else:
 			return render(request,'login.html',{'message':'账户或密码错误!'})
 	else:
-		return render(request,'login.html',{'message':'登录成功！'})
+		return render(request,'login.html')
 	

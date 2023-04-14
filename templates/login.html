@@ -5,7 +5,30 @@
 <div class="regbox">
 	<div class="reg_title"><b>登录信息</b></div>
 	<br>
-	
+	<form action="/settings/login/" method="post">
+		{% if message %}
+			<div>{{message}}</div>
+		{% endif %}
+		{% csrf_token %}
+		<div class="reg_cab">
+			<label for="id_username" class="reg_cab_lab">用户&nbsp;&nbsp;&nbsp;</label>
+			<input id="username" maxlength="30" name="username" type="text" />
+		</div>
+		<div class="reg_cab">
+			<label for="id_password" class="reg_cab_lab">密码&nbsp;&nbsp;&nbsp;</label>
+			<input id="password" name="password" type="password" />
+		</div>
+<!--		验证码-->
+<!--		<div class="reg_cab">-->
+<!--			{{ login_form.captcha.errors }}-->
+<!--			{{ login_form.captcha.label_tag }}-->
+<!--			{{ login_form.captcha }}-->
+<!--		</div>-->
+		<div class="reg_btn">
+			<input type="submit" class="reg_btn1" name="submit" value="提交" />
+			<input type="reset" class="reg_btn1" name="reset" value="重置" />
+		</div>
+	</form>
 </div>
 
 {% endblock %}
