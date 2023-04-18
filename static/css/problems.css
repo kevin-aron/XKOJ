@@ -40,3 +40,25 @@
 	border-radius: 2px;
 	font-size:15px;
 }
+.submit_1{
+	background-color:#2929a3;
+	color: #ffffff;
+	width:100px;
+	height:25px;
+	font-size:17px;
+	border:1px solid black;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	cursor:pointer;
+}
+.btn_sub{
+	border:1px solid black;
+	border-radius:5px;
+	float:right;
+	font-weight:900;
+	font-size:15px;
+	margin-right:20px;
+}
+.btn_sub:hover{
+	background-color:#e6e6e6;
+}

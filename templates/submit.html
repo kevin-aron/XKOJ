@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title"><b>提交问题</b></div>
+	<br><br>
+	<form id="submit_form" method="post" action="/submit/{{pid}}" class="" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div id="submit_1">
+			<select id="id_lang" name="lang" class="submit_1">
+				<option value="C">C</option>
+				<option value="CPP">C++</option>
+				<option value="JAVA">Java</option>
+				<option value="PYTH3">Python3</option>
+			</select>
+			<a style="width:5px"> &nbsp;</a>
+		</div>
+<!--		<textarea id="id_code" name="code"></textarea>-->
+		<div id="editor" style="height:300px;width:800px;"></div>
+		<pre id="editor"></pre>
+		<div stype="position:relative;float:right;">
+			<input type="submit" name="submit" value="&#9749;&nbsp;提交答案" class="btn_sub">
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+	$('#id_lang')
+	.dropdown();
+</script>
+<script type="text/javascript" charset="utf-8" src="{% static "ace/ace/build/src/ace.js" %}"></script>
+<!--<script type="text/javascript" charset="utf-8" src="{% static "ace/ace/src-min/ext-language_tools.js" %}"></script>-->
+<script type="text/javascript">
+	var editor=ace.edit("editor");
+	var theme="clouds";
+	var language="c_cpp";
+	editor.setTheme("ace/theme/"+theme);
+	editor.session.setMode("ace/mode/"+language);
+	editor.setFontSize(18);
+	editor.session.setUseSoftTabs(true);
+	ace.require("ace/ext/language_tools");
+	editor.setOptions({
+		enableBasicAutocompletion:true,
+		enableSnippets:false,
+		enableLiveAutocompletion:true
+	});
+	var textarea=$('textarea[name="code"]').hide();
+	editor.getSession().on('change',function(){
+		textarea.val(editor.getSession().getValue());
+	});
+</script>
+
+{% endblock %}

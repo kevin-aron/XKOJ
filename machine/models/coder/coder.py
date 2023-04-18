@@ -11,5 +11,9 @@ class Coder(models.Model):
 	trynum = models.IntegerField(default=-1)
 	acnum = models.IntegerField(default=-1)
 	blognum = models.IntegerField(default=-1)
+	class Meta:
+		verbose_name = '用户'
+		verbose_name_plural = verbose_name
 	def __str__(self):
 		return str(self.user.username)
+	

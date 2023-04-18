@@ -20,5 +20,8 @@ class Problem(models.Model):
 	source = models.CharField(max_length=255)
 	num_tests=models.IntegerField(default=1)
 
+	class Meta:
+		verbose_name = '问题集'
+		verbose_name_plural = verbose_name
 	def __str__(self):
 		return str(self.code)
