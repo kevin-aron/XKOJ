@@ -1,0 +1,1 @@
+celery -A xkoj worker -l info

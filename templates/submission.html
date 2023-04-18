@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title"><b>测评结果</b></div>
+	<br><br>
+	{{submission.submitter.user.username}}
+	<br>
+	{{submission.status}}
+	<br>
+	{{submission.lang}}
+	<br>
+	{{submission.code}}
+	<br>
+</div>
+
+{% endblock %}
