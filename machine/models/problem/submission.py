@@ -25,6 +25,7 @@ class Submission(models.Model):
 	code = models.TextField(default="")
 	created = models.DateTimeField(auto_now_add=True)
 	private = models.BooleanField(default = True)
+	ac_num = models.IntegerField(default=0)
 	
 	class Meta:
 		verbose_name = '提交结果'

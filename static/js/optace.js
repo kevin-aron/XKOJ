@@ -1,0 +1,2 @@
+$('#id_lang')
+.dropdown();

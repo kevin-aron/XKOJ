@@ -10,7 +10,6 @@ from machine.forms import UserForm, ProblemForm, SubmissionForm
 from machine.tasks import evaluate_submission
 import re
 from django.utils.text import slugify
-#from markdown.extensions.toc import TocExtension
 
 def submitcode(request,pid):
 	if not request.user.is_authenticated:

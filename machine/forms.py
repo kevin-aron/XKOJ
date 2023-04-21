@@ -24,14 +24,10 @@ class ProblemForm(forms.ModelForm):
 		fields = ['name','code','statement','time_limit','source','input1','output1']
 
 class SubmissionForm(forms.ModelForm):
-	langs = [
-		("C","C"),
-		("CPP","C++"),
-		("JAVA","Java"),
-		("PYTH3","python3"),
-	]
+	langs = [("C","C"), ("CPP","C++"), ("JAVA","Java"), ("PYTH3","Python3")]
 	lang = forms.ChoiceField(choices = langs)
 	code = forms.CharField(widget = forms.Textarea)
 	class Meta:
 		model = Submission
 		fields  = ['lang', 'code']
+

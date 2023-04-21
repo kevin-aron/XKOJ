@@ -5,14 +5,39 @@
 <div class="regbox2">
 	<div class="reg_title"><b>测评结果</b></div>
 	<br><br>
-	{{submission.submitter.user.username}}
+	<table class="">
+		<thead>
+			<tr>
+				<td style="width: 10%;">#</td>
+				<td style="width: 15%;">用户</td>
+				<td style="width: 10%;">语言</td>
+				<td style="width: 20%;">状态</td>
+				<td style="width: 25%;">提交时间</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{submission.problem}}</td>
+				<td>{{submission.submitter.user.username}}</td>
+				<td>{{submission.lang}}</td>
+				<td>{{submission.status}}</td>
+				<td>{{submission.created}}</td>
+			</tr>
+		</tbody>
+	</table>
 	<br>
-	{{submission.status}}
-	<br>
-	{{submission.lang}}
-	<br>
-	{{submission.code}}
+	<pre>{{submission.code}}</pre>
+	<div id="textcode" style="height:300px;weight:600px;"></div>
 	<br>
 </div>
+
+<script type="text/javascript" charset="utf-8" src="{% static "ace/ace/build/src/ace.js" %}"></script>
+<script type="text/javascript">
+	var editor = ace.edit("textcode");
+	var language="c_cpp";
+	editor.getSession().setValue("{{submission.code}}");
+	editor.setReadOnly(true);
+	editor.setTheme("ace/theme/twilight");
+</script>
 
 {% endblock %}
