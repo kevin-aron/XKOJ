@@ -4,6 +4,8 @@ from machine.models.coder.coder import Coder
 from machine.models.problem.problem import Problem
 from machine.models.problem.testcase import TestCase
 from machine.models.problem.submission import Submission
+from machine.models.blog.blog import Post
+from machine.models.blog.comment import Comment
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -30,4 +32,12 @@ class SubmissionForm(forms.ModelForm):
 	class Meta:
 		model = Submission
 		fields  = ['lang', 'code']
+
+class CommentForm(forms.ModelForm):
+	class Meta:
+		model = Comment
+		fields = ['content', ]
+
+
+
 
