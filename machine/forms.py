@@ -6,6 +6,7 @@ from machine.models.problem.testcase import TestCase
 from machine.models.problem.submission import Submission
 from machine.models.blog.blog import Post
 from machine.models.blog.comment import Comment
+from machine.models.blog.like import Like
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -16,7 +17,7 @@ class UserForm(forms.ModelForm):
 class ProblemForm(forms.ModelForm):
 	name = forms.CharField()
 	code = forms.CharField()
-	statement = forms.CharField(widget = forms.Textarea)
+	statement = forms.CharField(widget = forms.Textarea(attrs={'class': 'markdown-editor'}))
 	time_limit = forms.IntegerField()
 	source = forms.CharField()
 	input1 = forms.FileField()
@@ -33,10 +34,19 @@ class SubmissionForm(forms.ModelForm):
 		model = Submission
 		fields  = ['lang', 'code']
 
+class BlogsForm(forms.ModelForm):
+	title = forms.CharField()
+	idcode = forms.CharField()
+	content = forms.CharField(widget = forms.Textarea)
+	class Meta:
+		model = Post
+		fields = ['title', 'idcode', 'content']
+
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comment
 		fields = ['content', ]
+
 
 
 

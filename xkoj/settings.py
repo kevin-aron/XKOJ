@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'machine',
+    'markdown_deux',
+    'django_mathjax',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +74,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'xkoj.wsgi.application'
+#MATHJAX_ENABLED = True
+#MATHJAX_CONFIG_FILE = "TeX-AMS-MML_HTMLorMML"
 
 
 # Database

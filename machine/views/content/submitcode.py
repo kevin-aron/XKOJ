@@ -25,9 +25,9 @@ def submitcode(request,pid):
 				evaluate_submission.delay(sub.id)
 			else:
 				payload = {"sub_form":sub_form, "pid":pid}
-				return render(request, "submit.html", payload)
+				return render(request, "submissions/submit.html", payload)
 			return redirect('/content/submission/{}'.format(sub.id))
 		else:
 			sub_form = SubmissionForm()
 			payload = {"sub_form":sub_form, "pid":pid}
-			return render(request, "submit.html", payload)
+			return render(request, "submissions/submit.html", payload)

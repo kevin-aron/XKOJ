@@ -7,4 +7,4 @@ from machine.models.blog.blog import Post
 
 def viewblogs(request):
 	all_blogs = Post.objects.all()
-	return render(request,"blog.html",{"all_blogs":all_blogs})
+	return render(request,"blogs/blog.html",{"all_blogs":all_blogs})

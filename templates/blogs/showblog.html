@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load markdown_deux_tags %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<h2>{{post.title}}</h2>
+	
+	{{post.writer}}
+	<br>
+	{{post.date_posted}}
+	<br>
+	<div class="pro_state">
+		{% block extrascripts %}
+		  <script>
+			MathJax = {
+			  tex: {
+			    inlineMath: [['$', '$'], ['\\(', '\\)']]
+			  },
+			  svg: {
+			    fontCache: 'global'
+			  }
+			};
+		  </script>
+		  <script type="text/javascript" id="MathJax-script" async
+		    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+		  </script>
+		{% endblock extrascripts %}
+		{% block content %}
+			{{ post.content | markdown }}
+		{% endblock content %}
+	
+</div>
+
+{% endblock %}

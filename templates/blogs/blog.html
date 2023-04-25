@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<link rel="stylesheet" href="{% static "css/blog.css" %}"/>
+<div class="regbox2">
+	<div class="reg_title">
+		<b>博客</b>
+		<a class="submit_btn" href="/blogs/addblog">
+			编写博客
+		</a>
+	</div>
+	<br>
+	<div style="height:400px;overflow:auto;">
+	<table class="blog_table">
+		{% for p in all_blogs %}
+			<tr>
+				<td><a href="{{p.link}}"><font color="#000099"><b>{{p.title}}</b></font></a>&nbsp;&nbsp;{{p.writer}}</td>
+			</tr>
+			<tr>
+				<td><div class="bloghidden">{{p.content}}</div><td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+
+{% endblock %}

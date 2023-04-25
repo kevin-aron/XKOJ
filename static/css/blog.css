@@ -1,0 +1,23 @@
+.bloghidden{
+	height: 1.2em; /* 设置为文本的实际高度 */
+	overflow: hidden; /* 隐藏超出部分 */
+	text-overflow: ellipsis; /* 超出部分以省略号显示 */
+	white-space: nowrap; /* 不换行 */
+	vertical-align: top; /* 垂直对齐方式为顶部 */
+}
+.blog_table{
+	margin-top:30px;
+	margin-left:50px;
+}
+tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+	background-color: #ffffff;
+}
+
+tr:nth-child(4n+1),tr:nth-child(4n+2) {
+	border-bottom: 2px solid black;
+	margin-top:5px;
+}

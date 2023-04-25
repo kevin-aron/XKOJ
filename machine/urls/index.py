@@ -6,4 +6,5 @@ urlpatterns = [
 	path("settings/", include("machine.urls.settings.index")),
 	path("content/", include("machine.urls.content.index")),
 	path("blogs/", include("machine.urls.blogs.index")),
+	path("games/", include("machine.urls.games.index")),
 ]

@@ -9,4 +9,4 @@ from machine.models.problem.problem import Problem
 
 def allproblems(request):
 	all_problems = Problem.objects.all()
-	return render(request,"problems.html",{"all_problems":all_problems})
+	return render(request,"problems/problems.html",{"all_problems":all_problems})

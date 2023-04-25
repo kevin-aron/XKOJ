@@ -57,7 +57,7 @@ def evaluate_submission(sub_id):
 	for tc in testcases:
 		input_filename = tc.input_file.name
 		output_filename = tc.output_file.name
-		user_output_filename = "testcases/ans_{}_{}_{}.out".format(username,sub_id,cnt)
+		user_output_filename = "testcases/ans/{}_{}_{}.out".format(username,sub_id,cnt)
 		cnt = cnt + 1
 		if p.returncode == 0:
 			optional_lst = ["python3","run.py","process/{}".format(executable),input_filename,user_output_filename,str(tl)]

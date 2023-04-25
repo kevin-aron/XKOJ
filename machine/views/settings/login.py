@@ -15,7 +15,7 @@ def signin(request):
 			login(request,user)
 			return redirect('/')
 		else:
-			return render(request,'login.html',{'message':'账户或密码错误!'})
+			return render(request,'settings/login.html',{'message':'账户或密码错误!'})
 	else:
-		return render(request,'login.html')
+		return render(request,'settings/login.html')
 	

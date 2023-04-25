@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load markdown_deux_tags %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title">
+		<b>{{problem.name}}</b>
+		<a class="submit_btn" href="/content/submit/{{problem.code}}">
+			提交答案
+		</a>
+	</div>
+	<br><br>
+	
+	<div class="pro_state">
+		{% block extrascripts %}
+		  <script>
+			MathJax = {
+			  tex: {
+			    inlineMath: [['$', '$'], ['\\(', '\\)']]
+			  },
+			  svg: {
+			    fontCache: 'global'
+			  }
+			};
+		  </script>
+		  <script type="text/javascript" id="MathJax-script" async
+		    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+		  </script>
+		{% endblock extrascripts %}
+		{% block content %}
+			{{ problem.statement | markdown }}
+		{% endblock content %}
+	</div>
+	
+</div>
+
+{% endblock %}
