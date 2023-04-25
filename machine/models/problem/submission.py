@@ -19,10 +19,10 @@ class Submission(models.Model):
 				("WA", "Wrong Answer"),
 			)
 	submitter = models.ForeignKey(Coder, null=True, on_delete=models.CASCADE)
-	problem = models.ForeignKey(Problem, default=None, null=True,on_delete=models.CASCADE)
+	problem = models.ForeignKey(Problem, null=True,on_delete=models.CASCADE)
 	status = models.CharField(max_length=2, default="NT", choices=STATUSES)
 	lang = models.CharField(max_length=4, default="CPP", choices=LANGUAGES)
-	code = models.TextField(default="")
+	code = models.TextField()
 	created = models.DateTimeField(auto_now_add=True)
 	private = models.BooleanField(default = True)
 	ac_num = models.IntegerField(default=0)

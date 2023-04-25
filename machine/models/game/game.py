@@ -7,8 +7,8 @@ class Game(models.Model):
 	gamename = models.CharField(max_length=100)
 	code = models.CharField(max_length=20,unique=True)
 	link = models.URLField(max_length=256,blank=True)
-	timestart = models.DateTimeField(default=0)
-	timeend = models.DateTimeField(default=0)
+	timestart = models.DateTimeField(default=timezone.now)
+	timeend = models.DateTimeField(default=timezone.now)
 	status = models.IntegerField(default=0) # 0:未开始 1:进行中 2:已结束
 	gamestatement = models.TextField(default=0)
 	gamehard = models.IntegerField(default=0)
