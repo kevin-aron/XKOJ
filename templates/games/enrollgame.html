@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	{% if registered %}
+		<script>
+			alert("报名成功！再次点击进入比赛页面！");
+		</script>
+	{% endif %}
+	<div class="reg_title"><b>{{game.gamename}}</b></div>
+	<br>
+	<div class="enroll">
+		<div style="height:200px;overflow:auto;">
+		{{game.gamestatement}}
+	</div>
+	</div>
+	<br>
+	<form action="/games/games/{{game.code}}/ingame" method="post">
+		{% csrf_token %}
+		<input type="submit" class="reg_btn1" name="submit" value="报名比赛">
+	</form>
+</div>
+
+{% endblock %}

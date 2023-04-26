@@ -1,1 +1,45 @@
-game
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title"><b>比赛集</b></div>
+	<br>
+	<hr>
+	<div style="height:400px;overflow:auto;">
+	<table class="pro_all_table">
+		<thead>
+			<tr>
+				<td style="width: 10%;">#</td>
+				<td style="width: 40%;">比赛</td>
+				<td style="width: 15%;">报名人数</td>
+				<td style="width: 25%;">开始时间</td>
+			</tr>
+		</thead>
+		<tbody>
+		{% for g in gamesnotstart %}
+			<tr>
+			<td><p id="stars"></p></td> 
+			<script>
+				function showStars(){
+					var starnum = {{g.gamehard}};
+					var stars="";
+					for(var i=0;i<starnum;i++){
+						stars+="⭐";
+					}
+					return stars;
+				}
+				var result=showStars();
+				document.getElementById("stars").innerHTML=result;
+			</script>
+			<td><a href="{{g.link}}"><font color="#000099">{{g.gamename}}</font></a></td>
+			<td>{{g.gamenum}}</td>
+			<td>{{g.timestart}}</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	</div>
+</div>
+
+{% endblock %}

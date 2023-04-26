@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from machine.forms import UserForm
 from machine.models.coder.coder import Coder
 from machine.models.problem.problem import Problem
-from markdown import markdown
+import markdown
+from django.conf import settings
 
 def viewproblem(request,pid):
 	problem = get_object_or_404(Problem, code=pid)

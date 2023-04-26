@@ -30,4 +30,4 @@ def register(request):
 	else:
 		user_form = UserForm()
 	
-	return render(request,'register.html',{"user_form":user_form,"registered":registered})
+	return render(request,'settings/register.html',{"user_form":user_form,"registered":registered})

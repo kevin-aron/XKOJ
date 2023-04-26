@@ -8,5 +8,7 @@ from machine.models.problem.problem import Problem
 from machine.models.game.game import Game
 
 def games(request):
-	games = Game.objects.filter(status__in=[1,2]).order_by('-start_time')
-	return render(request, 'game.html', {"games":games})
+	gamesnotstart = Game.objects.filter(status=0).order_by('-timestart')
+#	gameing = Game.objects.filter(status=1).order_by('-timestart')
+#	gamesend = Game.objects.filter(status=2).order_by('-timestart')
+	return render(request, 'games/game.html', {"gamesnotstart":gamesnotstart})

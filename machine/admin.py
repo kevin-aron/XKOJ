@@ -9,6 +9,7 @@ from machine.models.blog.like import Like
 from machine.models.game.game import Game
 from machine.models.game.gameproblem import GameProblem
 from machine.models.game.gamesubmission import GameSubmission
+from machine.models.game.gamerk import GameRk
 
 admin.site.register(Coder)
 admin.site.register(Problem)
@@ -20,5 +21,4 @@ admin.site.register(Like)
 admin.site.register(Game)
 admin.site.register(GameProblem)
 admin.site.register(GameSubmission)
-
-
+admin.site.register(GameRk)
