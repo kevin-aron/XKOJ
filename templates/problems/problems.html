@@ -20,8 +20,7 @@
 		{% for p in all_problems %}
 			<tr>
 			<td>{{forloop.counter}}</td> 
-			<td><a href="{{p.link}}"><font color="#000099">{{p.name}}</font></a></td>
-			
+			<td><a href="{{p.link}}?gid=nogame"><font color="#000099">{{p.name}}</font></a></td>
 			<td>
 				<p id="rate_ac" class="pro_rate"></p>
 				<script>

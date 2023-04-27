@@ -12,17 +12,20 @@ from machine.models.game.gamerk import GameRk
 
 def ingame(request,pid):
 	registered = False
+	game = get_object_or_404(Game,code=pid)
+	problems = GameProblem.objects.filter(game=game)
 	if request.method == 'POST':
 		coder = Coder.objects.get(user = request.user)
 		flag = GameRk.objects.filter(player=coder).exists()
 		if flag:
-			return render(request, 'games/ingame.html')
+			return render(request, 'games/ingame.html', {"game":game, "problems":problems})
 		else:
-			game = get_object_or_404(Game,code=pid)
+			game.gamenum += 1
+			game.save()
 			gamerk = GameRk(game=game, player=coder)
 			gamerk.save()
 			registered = True
 			return render(request, 'games/enrollgame.html', {"registered":registered})
 	else:
-		return render(request, 'games/enrollgame.html')
+		return render(request, 'games/enrollgame.html', {"game":game})
 	

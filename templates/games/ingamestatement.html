@@ -1,1 +1,18 @@
-ingamestatement
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title">
+		<a href="http://8.130.110.219:8000/games/games/{{game.code}}/ingame/"><b>比赛题目</b></a>
+		<a href="http://8.130.110.219:8000/games/games/{{game.code}}/rk/">比赛排名</a>
+		<a href="http://8.130.110.219:8000/games/games/{{game.code}}/statement/">比赛状态</a>
+	</div>
+	<br>
+	<hr>
+	<div style="height:400px;overflow:auto;">
+	
+	</div>
+</div>
+
+{% endblock %}

@@ -16,8 +16,8 @@ def enroll(request,pid):
 	submissions = GameSubmission.objects.filter(game=game)
 	now = timezone.now()
 	if game.status == 0 or game.timeend < now:
-		return render(request, 'games/enrollgame.html', {"game":game, "problems":problems})
+		return render(request, 'games/enrollgame.html', {"game":game})
 	if game.timestart > now:
-		return HttpResponse('比赛还未开始')
+		return render(request, 'games/enrollgame.html', {"game":game})
 	if game.timestart <= now <= timeend:
 		return render(request, 'games/ingame.html', {"game":game, "problems":problems, "submissions":submissions})

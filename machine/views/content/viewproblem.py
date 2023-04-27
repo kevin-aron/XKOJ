@@ -11,4 +11,5 @@ from django.conf import settings
 
 def viewproblem(request,pid):
 	problem = get_object_or_404(Problem, code=pid)
-	return render(request, "problems/oneproblem.html", {"problem":problem})
+	gid = request.GET.get('gid')
+	return render(request, "problems/oneproblem.html", {"problem":problem, "gid":gid})

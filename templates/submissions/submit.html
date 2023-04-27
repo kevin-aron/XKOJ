@@ -7,7 +7,7 @@
 <div class="regbox2">
 	<div class="reg_title"><b>提交问题</b></div>
 	<br><br>
-	<form id="submit_form" method="post" action="/content/submit/{{pid}}" class="" enctype="multipart/form-data">
+	<form id="submit_form" method="post" action="/content/submit/{{pid}}?gid={{gid}}" class="" enctype="multipart/form-data">
 		{% csrf_token %}
 		<div id="submit_1">
 			<select id="id_lang" name="lang" class="submit_1">

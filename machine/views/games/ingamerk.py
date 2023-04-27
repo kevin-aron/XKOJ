@@ -3,5 +3,5 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
-def ingamerk(request):
-	return render(request, 'ingamerk.html')
+def ingamerk(request,pid):
+	return render(request, 'games/ingamerk.html')
