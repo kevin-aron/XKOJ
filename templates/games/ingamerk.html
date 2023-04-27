@@ -4,14 +4,47 @@
 
 <div class="regbox2">
 	<div class="reg_title">
-		<a href="http://8.130.110.219:8000/games/games/{{game.code}}/ingame/"><b>比赛题目</b></a>
-		<a href="http://8.130.110.219:8000/games/games/{{game.code}}/rk/">比赛排名</a>
-		<a href="http://8.130.110.219:8000/games/games/{{game.code}}/statement/">比赛状态</a>
+		<a href="http://8.130.110.219:8000/games/games/{{gid}}/ingame/"><b>比赛题目</b></a>
+		<a href="http://8.130.110.219:8000/games/games/{{gid}}/rk/">比赛排名</a>
+		<a href="http://8.130.110.219:8000/games/games/{{gid}}/statement/">比赛状态</a>
 	</div>
 	<br>
 	<hr>
 	<div style="height:400px;overflow:auto;">
-	
+	<table class="pro_all_table">
+		<thead>
+			<tr>
+				<td>#</td>
+				<td>通过数</td>
+				<td>时间</td>
+				{% for p in problems %}
+					<td>{{forloop.counter}}</td>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+		{% for g in gamerk %}
+			<tr>
+				<td>{{g.player.user.username}}</td>
+				<td>{{g.totalac}}</td>
+				<td><div id="times"></div></td>
+				{% for p in problems%}
+					{% for s in submissions %}
+						{% if s.problem.code == p.code and s.submitter == g.player %}
+							{% if s.result == 'AC' %}
+								<td class="tdac">+</td>
+							{% elif s.num_wa == 0 %}
+								<td class="tderr">·</td>
+							{% else %}
+								<td class="tdwa">-/{{s.num_wa}}</td>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
 	</div>
 </div>
 
