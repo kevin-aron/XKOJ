@@ -4,9 +4,9 @@
 
 <div class="regbox2">
 	<div class="reg_title">
-		<a href="http://8.130.110.219:8000/games/games/{{gid}}/ingame/"><b>比赛题目</b></a>
+		<a href="http://8.130.110.219:8000/games/games/{{gid}}/ingame/">比赛题目</a>
 		<a href="http://8.130.110.219:8000/games/games/{{gid}}/rk/">比赛排名</a>
-		<a href="http://8.130.110.219:8000/games/games/{{gid}}/statement/">比赛状态</a>
+		<a href="http://8.130.110.219:8000/games/games/{{gid}}/statement/"><b>比赛状态</b></a>
 	</div>
 	<br>
 	<hr>
@@ -14,18 +14,23 @@
 	<table class="pro_all_table">
 		<thead>
 			<tr>
-				<td>#</td>
-				<td>通过数</td>
-				<td>时间</td>
-				{% for p in problems %}
-					<td>{{forloop.counter}}</td>
-				{% endfor %}
+				<td>ID</td>
+				<td>题目名称</td>
+				<td>用户</td>
+				<td>语言</td>
+				<td>状态</td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-
+			{% for s in submissions %}
+			<tr>	
+				<td><a href="{{s.link}}">{{s.idcode}}</a></td>
+				<td>{{s.problem.name}}</td>
+				<td>{{s.submitter.user.username}}</td>
+				<td>{{s.lang}}</td>
+				<td>{{s.result}}</td>
 			</tr>
+			{% endfor %}
 		</tbody>
 	</table>
 	</div>

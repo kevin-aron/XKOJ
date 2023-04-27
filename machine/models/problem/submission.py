@@ -26,6 +26,8 @@ class Submission(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	private = models.BooleanField(default = True)
 	ac_num = models.IntegerField(default=0)
+	idcode = models.CharField(max_length=100,unique=True,default='xxxaxxx')
+	link = models.URLField(default=-1)
 	
 	class Meta:
 		verbose_name = '提交结果'

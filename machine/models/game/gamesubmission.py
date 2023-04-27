@@ -29,7 +29,10 @@ class GameSubmission(models.Model):
 	lang = models.CharField(max_length=10, default="CPP", choices=LANGUAGES)
 	num_wa = models.IntegerField(default=0)
 	num_ac = models.IntegerField(default=0)
+	nowtime = models.IntegerField(default=0)
 	subtime = models.DateTimeField(auto_now_add=True)
+	idcode = models.CharField(max_length=100,unique=True,default='xxxaxxx')
+	link = models.URLField(default=-1)
 
 	class Meta:
 		verbose_name = '比赛提交状态'
