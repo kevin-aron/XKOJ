@@ -10,9 +10,9 @@ from machine.models.game.gamesubmission import GameSubmission
 class GameRk(models.Model):
 	game = models.ForeignKey(Game, on_delete=models.CASCADE)
 	player = models.ForeignKey(Coder, null=True, on_delete=models.CASCADE)
-	playersubs = models.ForeignKey(GameSubmission, null=True, on_delete=models.CASCADE)
 	totalac = models.IntegerField(default=0)
 	failtime = models.IntegerField(default=0)
+	alltime = models.IntegerField(default=0)
 
 	class Meta:
 		verbose_name = '比赛排名信息'

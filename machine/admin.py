@@ -8,6 +8,7 @@ from machine.models.blog.comment import Comment
 from machine.models.blog.like import Like
 from machine.models.game.game import Game
 from machine.models.game.gameproblem import GameProblem
+from machine.models.game.gamecoder import GameCoder
 from machine.models.game.gamesubmission import GameSubmission
 from machine.models.game.gamerk import GameRk
 
@@ -20,5 +21,6 @@ admin.site.register(Comment)
 admin.site.register(Like)
 admin.site.register(Game)
 admin.site.register(GameProblem)
+admin.site.register(GameCoder)
 admin.site.register(GameSubmission)
 admin.site.register(GameRk)

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+<script type="text/javascript" charset="utf-8" src="{% static "ace/ace/build/src/ace.js" %}"></script>
+<link rel="stylesheet" href="{% static "css/submission.css" %}"/>
+
+<div id="fireworks"></div>
+
+<div class="regbox2">
+	<div class="reg_title"><b>测评结果</b></div>
+	<br><br>
+	<table>
+		<thead>
+			<tr>
+				<td style="width: 10%;">#</td>
+				<td style="width: 10%;">用户</td>
+				<td style="width: 10%;">语言</td>
+				<td style="width: 10%;">状态</td>
+				<td style="width: 25%;">提交时间</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{submission.problem.name}}</td>
+				<td>{{submission.submitter.user.username}}</td>
+				<td>{{submission.lang}}</td>
+				<td>{{submission.result}}</td>
+				<td>{{submission.subtime}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<div id="editor" style="height:300px;weight:800px;">{{submission.code}}</div>
+</div>
+
+<script type="text/javascript">
+	var editor = ace.edit("editor");
+	var theme="clouds";
+	var language="c_cpp";
+	editor.setTheme("ace/theme/"+theme);
+	editor.session.setMode("ace/mode/"+language);
+	editor.setFontSize(15);
+	editor.session.setUseSoftTabs(true);
+	editor.setReadOnly(true);
+</script>
+<script>
+	var value = "{{submission.status}}";
+	if (value == "AC") {
+		var img = document.createElement("img");
+		img.src = "{% static "img/champ.jpg" %}";
+		img.style.position = "absolute";
+		document.getElementById("fireworks").appendChild(img);
+		setTimeout(function(){
+		document.getElementById("fireworks").removeChild(img);
+	}, 3000);
+}
+</script>
+{% endblock %}

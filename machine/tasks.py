@@ -203,7 +203,8 @@ def game_submission(gid, gsub_id, submission_data):
 
 	ac_num = 0
 	flag = 1
-
+	gamerk = GameRk.objects.get(game=game, player=gamesubmission.submitter)
+	
 	
 	for state in allstate:
 		if state == "CE":
@@ -247,8 +248,15 @@ def game_submission(gid, gsub_id, submission_data):
 			gamesubmission.nowtime += 20
 			gamesubmission.num_ac += 1
 			cur_problem.num_ac += 1
+			game.gamenum += 1
+			gamerk.totalac += 1
 			cur_problem.save()
 			gamesubmission.save()
+			game.save()
+			gamerk.save()
+		else:
+			gamerk.failtime += 20
+			gamerk.save()
 
 	return "game_submission"
 

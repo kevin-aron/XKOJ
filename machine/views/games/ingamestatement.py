@@ -12,4 +12,4 @@ from machine.models.game.gamerk import GameRk
 def ingamestatement(request,pid):
 	game = get_object_or_404(Game,code=pid)
 	submissions = GameSubmission.objects.filter(game=game).order_by('-subtime')
-	return render(request, 'games/ingamestatement.html', {"gid":pid})
+	return render(request, 'games/ingamestatement.html', {"gid":pid,"submissions":submissions})

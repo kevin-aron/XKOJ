@@ -27,19 +27,18 @@
 			<tr>
 				<td>{{g.player.user.username}}</td>
 				<td>{{g.totalac}}</td>
-				<td><div id="times"></div></td>
-				{% for p in problems%}
-					{% for s in submissions %}
-						{% if s.problem.code == p.code and s.submitter == g.player %}
-							{% if s.result == 'AC' %}
-								<td class="tdac">+</td>
-							{% elif s.num_wa == 0 %}
-								<td class="tderr">·</td>
-							{% else %}
-								<td class="tdwa">-/{{s.num_wa}}</td>
-							{% endif %}
-						{% endif %}
-					{% endfor %}
+				<td><div id="times">{{g.alltime}}</div></td>
+				
+				{% for p in problems %}
+				    {% with username=g.player.user.username code=p.problem.code %}
+				        {% if data.username.code.actime == -1%}
+				            <td class="tdwa">-/{{ data.username.code.failtime | default:"." }}</td>
+				        {% elif data.username.code.actime == 0 %}
+				            <td class="tderr">·</td>
+				        {% else %}
+				            <td class="tdac">+/{{ data.username.code.failtime | default:"." }}</td>
+				        {% endif %}
+				    {% endwith %}
 				{% endfor %}
 			</tr>
 		{% endfor %}

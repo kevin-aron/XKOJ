@@ -26,6 +26,7 @@ class GameSubmission(models.Model):
 	problem = models.ForeignKey(Problem, null=True, on_delete=models.CASCADE)
 	code = models.TextField()
 	result = models.CharField(max_length=3, default="NT", choices=STATUSES)
+	private = models.BooleanField(default=True)
 	lang = models.CharField(max_length=10, default="CPP", choices=LANGUAGES)
 	num_wa = models.IntegerField(default=0)
 	num_ac = models.IntegerField(default=0)

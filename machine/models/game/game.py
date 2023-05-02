@@ -13,6 +13,8 @@ class Game(models.Model):
 	gamestatement = models.TextField(default=0)
 	gamehard = models.IntegerField(default=0)
 	gamenum = models.IntegerField(default=0)
+	problemnum = models.IntegerField(default=0)
+	codernum = models.IntegerField(default=0)
 
 	class Meta:
 		verbose_name = '比赛信息'

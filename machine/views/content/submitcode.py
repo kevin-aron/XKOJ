@@ -41,11 +41,12 @@ def submitcode(request,pid):
 					)
 					gamesubmission.save()
 					game_submission.delay(gid, gamesubmission.id, submission_data)
+					sub_id = sub.id
 					sub.delete()
-					return redirect('/content/submission/{}'.format(gamesubmission.id))
+					return redirect('/content/submission/{}?gid={}'.format(sub_id,game.code))
 				else:
 					evaluate_submission.delay(sub.id)
-					return redirect('/content/submission/{}'.format(sub.id))
+					return redirect('/content/submission/{}?gid={}'.format(sub.id,'nogame'))
 			else:
 				payload = {"sub_form":sub_form, "pid":pid}
 				return render(request, "submissions/submit.html", payload)
