@@ -18,7 +18,7 @@
 				<td>通过数</td>
 				<td>时间</td>
 				{% for p in problems %}
-					<td>{{forloop.counter}}</td>
+					<td>{{p.problem.name}}</td>
 				{% endfor %}
 			</tr>
 		</thead>
@@ -28,17 +28,20 @@
 				<td>{{g.player.user.username}}</td>
 				<td>{{g.totalac}}</td>
 				<td><div id="times">{{g.alltime}}</div></td>
-				
 				{% for p in problems %}
-				    {% with username=g.player.user.username code=p.problem.code %}
-				        {% if data.username.code.actime == -1%}
-				            <td class="tdwa">-/{{ data.username.code.failtime | default:"." }}</td>
-				        {% elif data.username.code.actime == 0 %}
-				            <td class="tderr">·</td>
-				        {% else %}
-				            <td class="tdac">+/{{ data.username.code.failtime | default:"." }}</td>
-				        {% endif %}
-				    {% endwith %}
+					{% for key,value in newdata.items %}
+						{% for subkey,subvalue in value.items %}
+							{% if key == g.player.user.username and subkey == p.problem.code  %}
+								{% if subvalue.boolac == 0 %}
+									<td class="tdwa">-/{{ subvalue.failtime }}</td>
+								{% elif subvalue.boolac == -1 %}
+									<td class="tderr">·</td>
+								{% else %}
+									<td class="tdac">+/{{ subvalue.failtime }}</td>
+								{% endif %}
+							{% endif %}
+						{% endfor %}	   
+					{% endfor %}
 				{% endfor %}
 			</tr>
 		{% endfor %}
