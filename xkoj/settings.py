@@ -148,8 +148,15 @@ MARKDOWN_EXTENSIONS = [
     'markdown.extensions.extra',
     'markdown.extensions.nl2br',
     'markdown.extensions.tables',
+    'markdown.extensions.fenced_code',
+    'markdown.extensions.codehilite',
 ]
-
+MARKDOWN_EXTENSION_CONFIGS = {
+    'markdown.extensions.codehilite': {
+        'linenums': False,
+        'css_class': 'highlight',
+    }
+}
 
 
 
