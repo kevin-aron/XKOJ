@@ -11,16 +11,16 @@
 	</div>
 	<br>
 	<div style="height:400px;overflow:auto;">
-	<table class="blog_table">
-		{% for p in all_blogs %}
-			<tr>
-				<td><a href="{{p.link}}"><font color="#000099"><b>{{p.title}}</b></font></a>&nbsp;&nbsp;{{p.writer}}</td>
-			</tr>
-			<tr>
-				<td><div class="bloghidden">{{p.content}}</div><td>
-			</tr>
-		{% endfor %}
-	</table>
+	{% for blog in all_blogs %}
+		<div class="blogstyle">
+			<span class="blogstyle_title"><a href="http://8.130.110.219:8000/blogs/blogs/{{blog.idcode}}"><font color="#000099"><b>{{blog.title}}</b></font></a></span>
+			<span class="blogstyle_time">{{blog.date_posted}}</span>
+			<span class="blogstyle_author">{{blog.writer}}</span>
+			<span class="blogstyle_excerpt">{{blog.excerpt}}</span>
+		</div>
+	{% empty %}
+		<p>暂时还没有博客~</p>
+	{% endfor %}
 </div>
 
 {% endblock %}

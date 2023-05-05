@@ -6,9 +6,11 @@
 <div class="regbox2">
 	<div class="reg_title">
 		<b>编写博客</b>
-		<form id="add_problem_form" method="post" action="/blogs/addblog/" enctype="multipart/form-data">
-	        	<input type="hidden" name="csrfmiddlewaretoken" value="MNib5rdXeb2Sc8xexqXAZUCzclv7kFA6MWaT62q8pCahuebfeZgB2cZnmvAmYSIC">
+		<form id="add_problem_form" method="post" action="/blogs/blogs/" enctype="multipart/form-data">
+	        	{% csrf_token %}
+	        	
 	        	{{ blog_form.as_p }}
+			
 			<input type="submit" name="submit" value="发布博客" />
 	     </form>
 	</div>

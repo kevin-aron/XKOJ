@@ -7,6 +7,8 @@ from machine.models.problem.submission import Submission
 from machine.models.blog.blog import Post
 from machine.models.blog.comment import Comment
 from machine.models.blog.like import Like
+from machine.models.blog.category import Category
+from machine.models.blog.tags import Tags
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())
@@ -36,11 +38,14 @@ class SubmissionForm(forms.ModelForm):
 
 class BlogsForm(forms.ModelForm):
 	title = forms.CharField()
-	idcode = forms.CharField()
+	excerpt = forms.CharField()
 	content = forms.CharField(widget = forms.Textarea)
+	category = forms.ModelChoiceField(queryset=Category.objects.all(), label='分类')
+	tags = forms.ModelMultipleChoiceField(queryset=Tags.objects.all(), label='标签', required=False)
+	
 	class Meta:
 		model = Post
-		fields = ['title', 'idcode', 'content']
+		fields = ['title', 'excerpt', 'content', 'category', 'tags']
 
 class CommentForm(forms.ModelForm):
 	class Meta:

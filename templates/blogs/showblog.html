@@ -14,30 +14,24 @@
 	</div>
 	<div style="height:400px;overflow:auto;">
 	<div class="blog_state">
-		{% block extrascripts %}
-		  <script>
-			MathJax = {
-			  tex: {
-			    inlineMath: [['$', '$'], ['\\(', '\\)']]
-			  },
-			  svg: {
-			    fontCache: 'global'
-			  }
-			};
-		  </script>
-		  <script type="text/javascript" id="MathJax-script" async
-		    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-		  </script>
-		{% endblock extrascripts %}
 		{% block content %}
 		<div class="markdown-body">
-			{{ post.content|markdown|safe }}
+			{{ post.content|safe }}
 		</div>
 		{% endblock content %}
 	</div>
 	<div style="height:400px;overflow:auto;">
 	<div class="blog_nav">
 		<p style = "font-size:20px;margin-left:10px"><a>&#128077;{{likenum}}</p>
+		<p>添加评论</p>
+		<form action="/blogs/blogs/{{pid}}" method="POST">
+			{% csrf_token %}
+			<input id="content" maxlength="5000" name="content" type="text" />
+			<div class="reg_btn">
+				<input type="submit" class="reg_btn1" name="submit" value="提交" />
+				<input type="reset" class="reg_btn1" name="reset" value="重置" />
+			</div>
+		</form>
 		{% for m in comments %}
 			<div class="blog_comment">
 				{{m.author.user.username}}

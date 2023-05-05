@@ -40,6 +40,10 @@
 			</td>
 			<td><div class="pro_score">{{p.score}}</div></td>
 			</tr>
+		{% empty %}
+		<tr>
+			<td>暂时无题目！</td>
+		</tr>
 		{% endfor %}
 		</tbody>
 	</table>

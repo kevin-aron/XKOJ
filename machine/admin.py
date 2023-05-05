@@ -6,6 +6,8 @@ from machine.models.problem.submission import Submission
 from machine.models.blog.blog import Post
 from machine.models.blog.comment import Comment
 from machine.models.blog.like import Like
+from machine.models.blog.category import Category
+from machine.models.blog.tags import Tags
 from machine.models.game.game import Game
 from machine.models.game.gameproblem import GameProblem
 from machine.models.game.gamecoder import GameCoder
@@ -19,6 +21,8 @@ admin.site.register(Submission)
 admin.site.register(Post)
 admin.site.register(Comment)
 admin.site.register(Like)
+admin.site.register(Category)
+admin.site.register(Tags)
 admin.site.register(Game)
 admin.site.register(GameProblem)
 admin.site.register(GameCoder)
