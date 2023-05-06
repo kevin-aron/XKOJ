@@ -39,6 +39,7 @@
 	padding:15px;
 	background-color: #f2f2f2;
 	border: 2px solid #e6e6e6;
+	overflow:auto;
 }
 .regbox3{
 	float:left;
@@ -62,12 +63,26 @@
 
 .blog_comment{
 	margin-top:20px;
+	width:100%;
+	height:20px;
+}
+.nav_right{
+	float:left;
+	height:auto;
+	width:100px;
+}
+.nav_left{
+	float: left;
+	height:50px;
+	width:50px;
 }
 .commentuser{
-	font-size:12px;
+	font-size:18px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color:grey;
 }
 .commentcontent{
-	font-size:15px;
+	font-size:18px;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 

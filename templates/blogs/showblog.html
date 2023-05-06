@@ -31,9 +31,13 @@
 		</form>
 		{% for m in comments %}
 			<div class="blog_comment">
-				<img src="{% static image_path %}" style="height:50px;width:50px;border-radius: 50%;">
-				<div class="commentuser">{{m.author.user.username}}</div>
-				<div class="commentcontent">{{m.content}}</div>
+				<div class="nav_left">
+					<img src="{% static image_path %}" style="height:40px;width:40px;border-radius: 50%;">
+				</div>
+				<div class="nav_right">
+					<div class="commentuser">&nbsp;&nbsp;{{m.author.user.username}}</div>
+					<div class="commentcontent">&nbsp;&nbsp;&nbsp;&nbsp;{{m.content}}</div>
+				</div>
 			</div>
 		{% endfor %}
 	</div>

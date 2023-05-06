@@ -14,11 +14,15 @@
 	<table class="pro_all_table">
 		<thead>
 			<tr>
-				<td style="width:40px;">用户</td>
-				<td style="width:40px;">通过数</td>
-				<td style="width:40px;">时间</td>
+				<td style="width:40px;height:20px;">用户</td>
+				<td style="width:20px;height:20px;">通过数</td>
+				<td style="width:20px;height:20px;">时间</td>
 				{% for p in problems %}
-					<td style="width:40px;">{{p.problem.name}}</td>
+					<td style="width:20px;height:20px;">{{ forloop.counter }}</td>
+					<td style="width:20px;height:20px;">{{ forloop.counter }}</td>
+					<td style="width:20px;height:20px;">{{ forloop.counter }}</td>
+					<td style="width:20px;height:20px;">{{ forloop.counter }}</td>
+					<td style="width:20px;height:20px;">{{ forloop.counter }}</td>
 				{% endfor %}
 			</tr>
 		</thead>
