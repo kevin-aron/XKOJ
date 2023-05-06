@@ -22,12 +22,15 @@
 	</div>
 	<div style="height:400px;overflow:auto;">
 	<div class="blog_nav">
-		<p style = "font-size:20px;margin-left:10px"><a>&#128077;{{likenum}}</p>
-		<p>添加评论</p>
+		<p style = "font-size:20px;margin-left:10px">
+			<a href="http://8.130.110.219:8000/blogs/bloglike/{{pid}}">&#128077;</a>
+			&nbsp;&nbsp;{{likenum}}
+		</p>
+		<font>添加评论</font>
 		<form action="/blogs/blogs/{{pid}}" method="POST">
 			{% csrf_token %}
 			<input id="content" maxlength="5000" name="content" type="text" />
-			<div class="reg_btn">
+			<div style="margin-top:5px;">
 				<input type="submit" class="reg_btn1" name="submit" value="提交" />
 				<input type="reset" class="reg_btn1" name="reset" value="重置" />
 			</div>

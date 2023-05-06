@@ -17,7 +17,8 @@ def register(request):
 			u_now.set_password(u_now.password)
 			u_now.save()
 			coder = Coder(user = u_now)
-			coder.avatar = avatar
+			if avatar:
+				coder.avatar = avatar
 			coder.link = '/users/%s' % (u_now.username)
 			coder.rating = 900
 			coder.trynum = 0

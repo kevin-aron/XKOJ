@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 class Coder(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	avatar = models.URLField(max_length=256,blank=True)
+	avatar = models.ImageField(upload_to='static/avatar/', default='static/avatar/default_avatar.jpg')
 	link = models.URLField(max_length=256,blank=True)
 	rating = models.IntegerField(default=900)
 	trynum = models.IntegerField(default=0)

@@ -12,11 +12,9 @@
 tr:nth-child(odd) {
 	background-color: #f2f2f2;
 }
-
 tr:nth-child(even) {
 	background-color: #ffffff;
 }
-
 tr:nth-child(4n+1),tr:nth-child(4n+2) {
 	border-bottom: 2px solid black;
 	margin-top:5px;
@@ -30,15 +28,16 @@ tr:nth-child(4n+1),tr:nth-child(4n+2) {
 	width: 600px;
 	height: 400px;
 	margin-left: 40px;
-	background-color: green;
 	padding-left: 20px;
 }
 .blog_nav{
 	float:left;
-	width:200px;
-	height:400px;
+	width:175px;
+	height:350px;
 	margin-left:20px;
-	background-color: red;
+	padding:15px;
+	background-color: #efeff5;
+	border: 1px solid black;
 }
 .regbox3{
 	float:left;
@@ -50,7 +49,15 @@ tr:nth-child(4n+1),tr:nth-child(4n+2) {
 	border-radius: 10px;
 	box-shadow: 3px 3px 10px #b3b3b3;
 }
-
+.blogstyle_time{
+	border: 1px solid black;
+}
+.blogstyle_autho{
+	border: 1px solid black;
+}
+.blogstyle_excerpt{
+	width:50px;
+}
 
 
 

@@ -10,16 +10,18 @@
 	{% endif %}
 	<div class="reg_title"><b>{{game.gamename}}</b></div>
 	<br>
-	<div class="enroll">
-		<div style="height:200px;overflow:auto;">
-		{{game.gamestatement}}
+	<div class="enrollgame">
+		<div class="enroll">
+			<div style="height:200px;overflow:auto;">
+			{{game.gamestatement}}
+		</div>
+		</div>
+		<br>
+		<form action="/games/games/{{game.code}}/ingame" method="post">
+			{% csrf_token %}
+			<input type="submit" class="reg_btn1" name="submit" value="报名比赛/进入比赛">
+		</form>
 	</div>
-	</div>
-	<br>
-	<form action="/games/games/{{game.code}}/ingame" method="post">
-		{% csrf_token %}
-		<input type="submit" class="reg_btn1" name="submit" value="报名比赛">
-	</form>
 </div>
 
 {% endblock %}

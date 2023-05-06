@@ -8,4 +8,6 @@ from machine.models.coder.coder import Coder
 
 def message(request):
 	coder = Coder.objects.get(user = request.user)
-	return render(request, 'settings/message.html', {"coder":coder})
+	image_path = str(coder.avatar)
+	image_path = image_path[7:]
+	return render(request, 'settings/message.html', {"coder":coder,"image_path":image_path})

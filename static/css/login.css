@@ -1,0 +1,64 @@
+.message_avatar{
+	text-align:center;
+}
+.message_centent{
+	margin-top:25px;
+	margin-left:20%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-weight:900;
+	height:130px;
+}
+.left-column{
+	float: left;
+	width: 50%;
+	height:30px;
+}
+
+.right-column{
+	float: right;
+	width: 50%;
+	height:30px;
+}
+.message_rating{
+	width:460px;
+	height:140px;
+	margin-left:20%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size:18px;
+	font-weight:900;
+	border: 1px solid #e2e4e7;
+	border-radius: 10px;
+}
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left:10%;
+	width: 400px;
+	height: 60px;
+}
+.box {
+	width: 20px;
+	height: 20px;
+	margin:5px;
+	border-radius: 3px;
+}
+.rank1{
+	background-color:#9be9a8;
+	border: 1px solid #9ae6a6;
+}
+.rank2{
+	background-color:#40c463;
+	border: 1px solid #3fbd60;
+}
+.rank3{
+	background-color:#30a14e;
+	border: 1px solid #309e4d;
+}
+.rank4{
+	background-color:#216e39;
+	border: 1px solid #216b38;
+}
+.none{
+	background-color:#ebedf0;
+	border: 1px solid #e2e4e7;
+}

@@ -11,9 +11,9 @@
 		<thead>
 			<tr>
 				<td style="width: 10%;">#</td>
-				<td style="width: 60%;">标题</td>
-				<td style="width: 15%;">通过率</td>
-				<td style="width: 15%;">难度</td>
+				<td style="width: 60%;"><b>标题</b></td>
+				<td style="width: 20%;"><b>通过率</b></td>
+				<td style="width: 10%;"><b>难度</b></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -22,12 +22,12 @@
 			<td>{{forloop.counter}}</td> 
 			<td><a href="{{p.link}}?gid=nogame"><font color="#000099">{{p.name}}</font></a></td>
 			<td>
-				<p id="rate_ac" class="pro_rate"></p>
+				<div id="rate_ac_{{p.id}}" class="pro_rate"></div>
 				<script>
 					function divide() {
 					    const num1 = {{p.num_ac}};
 					    const num2 = {{p.num_submissions}};
-					    if (num2 === 0) {
+					    if (num2 == 0) {
 					        return 0.00;
 					    }
 					    var result = (num1 / num2)*100;
@@ -35,7 +35,7 @@
 					    return result;
 					}
 					var result=divide();
-					document.getElementById("rate_ac").innerHTML = result+'%';
+					document.getElementById("rate_ac_{{p.id}}").innerHTML = result+'%';
 				</script>
 			</td>
 			<td><div class="pro_score">{{p.score}}</div></td>

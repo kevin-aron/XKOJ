@@ -4,24 +4,9 @@
 {% block body_block %}
 <link rel="stylesheet" href="{% static "css/blog.css" %}"/>
 <div class="regbox2">
-	{% block extrascripts %}
-		  <script>
-			MathJax = {
-			  tex: {
-			    inlineMath: [['$', '$'], ['\\(', '\\)']]
-			  },
-			  svg: {
-			    fontCache: 'global'
-			  }
-			};
-		  </script>
-		  <script type="text/javascript" id="MathJax-script" async
-		    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
-		  </script>
-		{% endblock extrascripts %}
-		{% block content %}
-			{{ tnight | markdown }}
-		{% endblock content %}
+	{{ tnight|safe }}
+	<img src="{% static "img/tp.jpg" %}" style="max-width: 60%;max-height: 60%;">
+	<img src="{% static "img/rz.jpg" %}" style="max-width: 60%;max-height: 60%;">
 </div>
 
 {% endblock %}

@@ -1,7 +1,57 @@
 {% extends 'base.html' %}
 
-{% block body_block %}
+{% load static %}
 
-{{coder.user.username}}
+{% block body_block %}
+<div class="regbox2">
+	<div class="message_avatar">
+		{% if coder.avatar %}
+			<img src="{% static image_path %}" style="height:150px;width:150px;border-radius: 50%;">
+		{% else %}
+			<img src="{% static "avatar/bug1.png" %}" style="height:150px;width:150px;border-radius: 50%;">
+		{% endif %}
+	</div>
+	<div class="message_centent">
+		<ul>
+			<li class="left-column">用户名</li>
+  			<li class="right-column">{{coder.user.username}}</li>
+			<li class="left-column">尝试题目数量</li>
+  			<li class="right-column">{{coder.trynum}}</li>
+			<li class="left-column">通过题目数量</li>
+  			<li class="right-column">{{coder.acnum}}</li>
+  			<li class="left-column">发布博客数量</li>
+  			<li class="right-column">{{coder.blognum}}</li>
+		</ul>
+	</div>
+	<div class="message_rating">
+		<p>&nbsp;&nbsp;Rating&nbsp;&nbsp;&nbsp;{{coder.rating}}</p>
+		<div class="container">
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box rank1"></div>
+			<div class="box rank2"></div>
+			<div class="box rank1"></div>
+			<div class="box rank2"></div>
+			<div class="box rank1"></div>
+			<div class="box rank3"></div>
+			<div class="box rank1"></div>
+			<div class="box rank3"></div>
+			<div class="box rank4"></div>
+			<div class="box rank1"></div>
+			<div class="box rank1"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+			<div class="box none"></div>
+		</div>
+	</div>
+</div>
 
 {% endblock %}

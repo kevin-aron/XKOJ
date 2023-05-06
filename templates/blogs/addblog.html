@@ -6,7 +6,7 @@
 <div class="regbox2">
 	<div class="reg_title">
 		<b>编写博客</b>
-		<form id="add_problem_form" method="post" action="/blogs/blogs/" enctype="multipart/form-data">
+		<form id="add_problem_form" method="POST" action="/blogs/addblog/" enctype="multipart/form-data">
 	        	{% csrf_token %}
 	        	
 	        	{{ blog_form.as_p }}

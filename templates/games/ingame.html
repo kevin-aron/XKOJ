@@ -24,7 +24,11 @@
 			<tr>
 			<td>{{forloop.counter}}</td>
 			<td><a href="{{p.problem.link}}?gid={{game.code}}"><font color="#000099">{{p.problem.name}}</font></a></td>
-			<td>{{p.passnum}}</td>
+			{% for key,value in prodata.items %}
+				{% if key == p.problem.code %}	  
+					<td>{{value.acnum}}</td>
+				{% endif %} 
+			{% endfor %}
 			</tr>
 		{% endfor %}
 		</tbody>

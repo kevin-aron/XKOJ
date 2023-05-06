@@ -14,11 +14,29 @@ def ingame(request,pid):
 	registered = False
 	game = get_object_or_404(Game,code=pid)
 	problems = GameProblem.objects.filter(game=game)
+	gamerk = GameRk.objects.filter(game=game)
+	gamesubmissions = GameSubmission.objects.filter(game=game)
+	prodata = {}
+	for p in problems:
+		now_problem = p.problem
+		problemcode = now_problem.code
+		if problemcode not in prodata:
+			prodata[problemcode] = { 'acnum':0 }
+		cnt = 0
+		for g in gamerk:
+			now_user = g.player
+			username = now_user.user.username	
+			for s in gamesubmissions:
+				if s.submitter == now_user and now_problem == s.problem and s.result == 'AC':
+					cnt += 1
+					break
+		prodata[problemcode]['acnum'] = cnt
+	
 	if request.method == 'POST':
 		coder = Coder.objects.get(user = request.user)
 		flag = GameRk.objects.filter(player=coder).exists()
 		if flag:
-			return render(request, 'games/ingame.html', {"game":game, "problems":problems})
+			return render(request, 'games/ingame.html', {"game":game, "problems":problems, "prodata":prodata})
 		else:
 			game.gamenum += 1
 			game.save()
@@ -27,5 +45,5 @@ def ingame(request,pid):
 			registered = True
 			return render(request, 'games/enrollgame.html', {"registered":registered})
 	else:
-		return render(request, 'games/enrollgame.html', {"game":game})
+		return render(request, 'games/enrollgame.html', {"game":game, "problems":problems, "prodata":prodata})
 	

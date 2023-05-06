@@ -158,6 +158,8 @@ MARKDOWN_EXTENSION_CONFIGS = {
     }
 }
 
-
+# Image Load
+MEDIA_ROOT = '/home/iuk/xkoj/'
+MEDIA_URL = '/'
 
 

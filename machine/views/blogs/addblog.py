@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from machine.forms import BlogsForm
 from django.forms import inlineformset_factory
+from machine.models.coder.coder import Coder
 from machine.models.blog.blog import Post
 from machine.models.blog.comment import Comment
 from machine.models.blog.like import Like
@@ -18,11 +19,13 @@ def addblog(request):
 		if request.method == 'POST':
 			blog_form = BlogsForm(request.POST)
 			if blog_form.is_valid():
-				blog = blog_form.save()
+				blog = blog_form.save(commit=False)
 				author = Coder.objects.get(user = request.user)
 				blog.writer = author
 				blog.save()
-			return redirect("/blogs/blogs/")
+				return redirect("/blogs/blogs/")
+			else:
+				return redirect("/blogs/addblog/")
 		else:
 			blog_form = BlogsForm()
 			

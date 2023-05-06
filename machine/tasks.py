@@ -132,7 +132,7 @@ def game_submission(gid, gsub_id, submission_data):
 	except:
 		return 
 	langu = gamesubmission.lang
-	gamesubmission.link="http://8.130.110.219:8000/content/submission/{}".format(gamesubmission.idcode)
+	gamesubmission.link="http://8.130.110.219:8000/content/submission/{}".format(gamesubmission.idnum)
 	sub_id = gamesubmission.idnum
 	game = Game.objects.get(code=gid)
 	username = gamesubmission.submitter.user.username

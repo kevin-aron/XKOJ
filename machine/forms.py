@@ -37,9 +37,9 @@ class SubmissionForm(forms.ModelForm):
 		fields  = ['lang', 'code']
 
 class BlogsForm(forms.ModelForm):
-	title = forms.CharField()
-	excerpt = forms.CharField()
-	content = forms.CharField(widget = forms.Textarea)
+	title = forms.CharField(label='标题')
+	excerpt = forms.CharField(label='摘要')
+	content = forms.CharField(widget = forms.Textarea, label='正文')
 	category = forms.ModelChoiceField(queryset=Category.objects.all(), label='分类')
 	tags = forms.ModelMultipleChoiceField(queryset=Tags.objects.all(), label='标签', required=False)
 	
