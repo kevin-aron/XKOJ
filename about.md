@@ -5,4 +5,6 @@ XKOJ是我作为桂林信息科技学院的学生，大学四年完成的最用�
 在前端怎么渲染,以及呈现所需要的开源项目Ace编辑器、Markdown、Mathjax等。
 最大的亮点是手写的测评机与排名功能，这是本项目耗时最久的地方。完整项目讲解将上传b站，供大家学习交流。
 ```
-[此处为b站链接🔗](https://www.bilibili.com)
+🔗[此处为b站链接](https://www.bilibili.com)&nbsp;&nbsp;
+🔗[远古版本(源码)链接](https://gitee.com/iuk11/xkoj)&nbsp;&nbsp;
+🔗[当前版本(源码)链接](https://github.com/kevin-aron/XKOJ)

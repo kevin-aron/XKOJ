@@ -19,5 +19,5 @@ def enroll(request,pid):
 		return render(request, 'games/enrollgame.html', {"game":game})
 	if game.timestart > now:
 		return render(request, 'games/enrollgame.html', {"game":game})
-	if game.timestart <= now <= timeend:
-		return render(request, 'games/ingame.html', {"game":game, "problems":problems, "submissions":submissions})
+	if game.timestart <= now <= game.timeend:
+		return render(request, 'games/enrollgame.html', {"game":game, "problems":problems, "submissions":submissions})

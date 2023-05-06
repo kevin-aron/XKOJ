@@ -17,6 +17,9 @@ def showblog(request, pid):
 	post = get_object_or_404(Post, idcode=pid)
 	comments = Comment.objects.filter(post=post)
 	like = Like.objects.filter(post=post)
+	coder = Coder.objects.get(user = request.user)
+	image_path = str(coder.avatar)
+	image_path = image_path[7:]
 	likenum = 0
 	for i in like:
 		likenum += 1
@@ -42,4 +45,4 @@ def showblog(request, pid):
 	m = re.search(r'<div class="toc">\s*<ul>(.*)</ul>\s*</div>', md.toc, re.S)
 	post.toc = m.group(1) if m is not None else ''
 	
-	return render(request, 'blogs/showblog.html', {'pid':pid, 'post': post, 'comments':comments, 'likenum':likenum, 'comment_form': comment_form})
+	return render(request, 'blogs/showblog.html', {'pid':pid, 'post': post, 'comments':comments, 'likenum':likenum, 'comment_form': comment_form,'image_path':image_path})

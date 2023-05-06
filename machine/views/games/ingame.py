@@ -31,12 +31,18 @@ def ingame(request,pid):
 					cnt += 1
 					break
 		prodata[problemcode]['acnum'] = cnt
+
+	#
+	times = game.timestart
+	timee = game.timeend
+	timestart = {'year':str(times.year).zfill(4),'month':str(times.month).zfill(2),'day':str(times.day).zfill(2),'hour':str(times.hour).zfill(2),'minute':str(times.minute).zfill(2),'second':str(times.second).zfill(2)}
+	timeend = {'year':str(timee.year).zfill(4),'month':str(timee.month).zfill(2),'day':str(timee.day).zfill(2),'hour':str(timee.hour).zfill(2),'minute':str(timee.minute).zfill(2),'second':str(timee.second).zfill(2)}
 	
 	if request.method == 'POST':
 		coder = Coder.objects.get(user = request.user)
 		flag = GameRk.objects.filter(player=coder).exists()
 		if flag:
-			return render(request, 'games/ingame.html', {"game":game, "problems":problems, "prodata":prodata})
+			return render(request, 'games/ingame.html', {"game":game, "problems":problems, "prodata":prodata,"timestart":timestart,"timeend":timeend})
 		else:
 			game.gamenum += 1
 			game.save()
@@ -45,5 +51,5 @@ def ingame(request,pid):
 			registered = True
 			return render(request, 'games/enrollgame.html', {"registered":registered})
 	else:
-		return render(request, 'games/enrollgame.html', {"game":game, "problems":problems, "prodata":prodata})
+		return render(request, 'games/enrollgame.html', {"game":game, "problems":problems})
 	

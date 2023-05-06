@@ -10,12 +10,25 @@
 	margin-top:20px;
 	margin-left:100px;
 }
+.timestart{
+	float:left;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-weight:900;
+}
+.timeend{
+	float:right;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-weight:900;
+}
 .tdwa{
-	
+	background-color:#ff5c33;
+	font-weight:500;
 }
 .tdac{
-	
+	background-color:#80ff80;
+	font-weight:500;
 }
 .tderr{
-	
+	background-color:#f7f7f8;
+	font-weight:500;
 }

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% load markdown_deux_tags %}
-
+{% load static %}
 {% block body_block %}
 
 <div class="regbox3">
@@ -12,6 +12,31 @@
 		&#9202;{{post.date_posted}}
 		<br>
 	</div>
+	
+<!--	<div style="height:400px;overflow:auto;">-->
+	<div class="blog_nav">
+		<div style = "font-size:20px;margin-left:10px">
+			<a href="http://8.130.110.219:8000/blogs/bloglike/{{pid}}">&#128077;</a>
+			&nbsp;&nbsp;{{likenum}}
+		</div>
+		<br>
+		<font><b>添加评论</b></font>
+		<form action="/blogs/blogs/{{pid}}" method="POST">
+			{% csrf_token %}
+			<input id="content" maxlength="5000" name="content" type="text" />
+			<div style="margin-top:5px;">
+				<input type="submit" class="reg_btn1" name="submit" value="评论" />
+				<input type="reset" class="reg_btn1" name="reset" value="清空" />
+			</div>
+		</form>
+		{% for m in comments %}
+			<div class="blog_comment">
+				<img src="{% static image_path %}" style="height:50px;width:50px;border-radius: 50%;">
+				<div class="commentuser">{{m.author.user.username}}</div>
+				<div class="commentcontent">{{m.content}}</div>
+			</div>
+		{% endfor %}
+	</div>
 	<div style="height:400px;overflow:auto;">
 	<div class="blog_state">
 		{% block content %}
@@ -19,29 +44,6 @@
 			{{ post.content|safe }}
 		</div>
 		{% endblock content %}
-	</div>
-	<div style="height:400px;overflow:auto;">
-	<div class="blog_nav">
-		<p style = "font-size:20px;margin-left:10px">
-			<a href="http://8.130.110.219:8000/blogs/bloglike/{{pid}}">&#128077;</a>
-			&nbsp;&nbsp;{{likenum}}
-		</p>
-		<font>添加评论</font>
-		<form action="/blogs/blogs/{{pid}}" method="POST">
-			{% csrf_token %}
-			<input id="content" maxlength="5000" name="content" type="text" />
-			<div style="margin-top:5px;">
-				<input type="submit" class="reg_btn1" name="submit" value="提交" />
-				<input type="reset" class="reg_btn1" name="reset" value="重置" />
-			</div>
-		</form>
-		{% for m in comments %}
-			<div class="blog_comment">
-				{{m.author.user.username}}
-				<br>
-				{{m.content}}
-			</div>
-		{% endfor %}
 	</div>
 </div>
 
