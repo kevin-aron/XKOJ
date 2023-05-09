@@ -19,9 +19,9 @@
 			</tr>
 		</thead>
 		<tbody>
-		{% for g in gamesnotstart %}
+		{% for g in games %}
 			<tr>
-			<td><p id="stars"></p></td> 
+			<td><p id="{{g.code}}"></p></td> 
 			<script>
 				function showStars(){
 					var starnum = {{g.gamehard}};
@@ -32,51 +32,7 @@
 					return stars;
 				}
 				var result=showStars();
-				document.getElementById("stars").innerHTML=result;
-			</script>
-			<td><a href="{{g.link}}"><font color="#000099">{{g.gamename}}</font></a></td>
-			<td>{{g.gamenum}}</td>
-			<td>{{g.timestart}}</td>
-			</tr>
-		{% endfor %}
-
-		
-		{% for g in gameing %}
-			<tr>
-			<td><p id="stars"></p></td> 
-			<script>
-				function showStars(){
-					var starnum = {{g.gamehard}};
-					var stars="";
-					for(var i=0;i<starnum;i++){
-						stars+="⭐";
-					}
-					return stars;
-				}
-				var result=showStars();
-				document.getElementById("stars").innerHTML=result;
-			</script>
-			<td><a href="{{g.link}}"><font color="#000099">{{g.gamename}}</font></a></td>
-			<td>{{g.gamenum}}</td>
-			<td>{{g.timestart}}</td>
-			</tr>
-		{% endfor %}
-
-		
-		{% for g in gamesend %}
-			<tr>
-			<td><p id="stars"></p></td> 
-			<script>
-				function showStars(){
-					var starnum = {{g.gamehard}};
-					var stars="";
-					for(var i=0;i<starnum;i++){
-						stars+="⭐";
-					}
-					return stars;
-				}
-				var result=showStars();
-				document.getElementById("stars").innerHTML=result;
+				document.getElementById("{{g.code}}").innerHTML=result;
 			</script>
 			<td><a href="{{g.link}}"><font color="#000099">{{g.gamename}}</font></a></td>
 			<td>{{g.gamenum}}</td>

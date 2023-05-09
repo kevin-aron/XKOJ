@@ -3,6 +3,11 @@
 {% block body_block %}
 
 <div class="regbox2">
+	{% if message %}
+		<script>
+			alert("比赛还未开始！");
+		</script>
+	{% endif %}
 	{% if registered %}
 		<script>
 			alert("报名成功！再次点击进入比赛页面！");

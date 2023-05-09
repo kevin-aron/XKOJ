@@ -19,3 +19,5 @@ class Game(models.Model):
 	class Meta:
 		verbose_name = '比赛信息'
 		verbose_name_plural = verbose_name
+	def __str__(self):
+		return str(self.gamename)

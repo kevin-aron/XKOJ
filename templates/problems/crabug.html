@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<div class="regbox2">
+	<div class="reg_title">
+		<b>题目爬虫</b>
+	</div>
+	<form method="POST" action="/content/crabug/">
+	    {% csrf_token %}
+	    <input type="text" name="url" size="80">
+	    <button type="submit">爬取</button>
+	</form>
+	<div style="height:400px;overflow:auto;">
+	{% if content %}
+	    <p>{{ content }}</p>
+	{% else %}
+	    <p>请输入需要爬取的 URL 地址</p>
+	{% endif %}
+	
+</div>
+
+{% endblock %}

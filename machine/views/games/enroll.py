@@ -15,9 +15,8 @@ def enroll(request,pid):
 	problems = GameProblem.objects.filter(game=game)
 	submissions = GameSubmission.objects.filter(game=game)
 	now = timezone.now()
-	if game.status == 0 or game.timeend < now:
-		return render(request, 'games/enrollgame.html', {"game":game})
-	if game.timestart > now:
-		return render(request, 'games/enrollgame.html', {"game":game})
-	if game.timestart <= now <= game.timeend:
+	if game.status == 0:
+		message = 1
+		return render(request, 'games/enrollgame.html', {"game":game, "message":message})
+	else:
 		return render(request, 'games/enrollgame.html', {"game":game, "problems":problems, "submissions":submissions})
